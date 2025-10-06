@@ -21,7 +21,7 @@
         function tampilkanCuaca(lokasi) {
             const apiKey = "37904014231d457986e40402250610";
             const urlapi = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(lokasi)}&aqi=no`;
-        }
+        
             $.ajax({
                 url: urlapi,
                 method: "GET",
@@ -57,7 +57,14 @@
                     $('#cuaca').html('<span style="color:red;">Lokasi tidak ditemukan atau terjadi kesalahan.</span>');
                     $('#lokasiInfo').empty();
                 }
-            })
+            });
+        }
+
+        $('#formLokasi').on('submit', function(e) {
+            e.preventDefault();
+            const lokasi = $('#inputLokasi').val();
+            tampilkanCuaca(lokasi);
+        });
     </script>
 </body>
 </html>
