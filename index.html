@@ -35,6 +35,23 @@
                             <li>Kelembapan: ${kelembapan}%</li>
                         </ul>`
                     );
+
+                    let negara = data.location.country;
+                    let provinsi = data.location.region;
+                    let kecamatan = data.location.name;
+                    let longitude = data.location.lon;
+                    let latitude = data.location.lat;
+                    $('#lokasiInfo').html(
+                        `<h3>Info Lokasi</h3>
+                        <ul>
+                            <li>Negara: ${negara}</li>
+                            <li>Provinsi: ${provinsi}</li>
+                            <li>Kecamatan: ${kecamatan}</li>
+                            <li>Suhu: ${suhu} &deg;C</li>
+                            <li>Longitude: ${longitude}</li>
+                            <li>Latitude: ${latitude}</li>
+                        </ul>`
+                    );
                 }
             })
     </script>
