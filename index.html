@@ -52,6 +52,10 @@
                             <li>Latitude: ${latitude}</li>
                         </ul>`
                     );
+                },
+                error: function(error) {
+                    $('#cuaca').html('<span style="color:red;">Lokasi tidak ditemukan atau terjadi kesalahan.</span>');
+                    $('#lokasiInfo').empty();
                 }
             })
     </script>
