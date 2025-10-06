@@ -22,7 +22,21 @@
             const apiKey = "37904014231d457986e40402250610";
             const urlapi = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(lokasi)}&aqi=no`;
         }
-            
+            $.ajax({
+                url: urlapi,
+                method: "GET",
+                success: function(data) {
+                    let suhu = data.current.temp_c;
+                    let kelembapan = data.current.humidity;
+                    $('#cuaca').html(
+                        `<h3>Info Cuaca</h3>
+                        <ul>
+                            <li>Suhu: ${suhu} &deg;C</li>
+                            <li>Kelembapan: ${kelembapan}%</li>
+                        </ul>`
+                    );
+                }
+            })
     </script>
 </body>
 </html>
